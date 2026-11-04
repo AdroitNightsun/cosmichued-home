@@ -280,6 +280,31 @@ nav {
   font-size: 26px;
   color: var(--rose);
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 42px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
+  transition: transform .25s ease, filter .25s ease;
+  filter: drop-shadow(0 2px 8px rgba(189, 77, 115, .25));
+}
+
+nav .logo:hover .logo-img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 12px rgba(189, 77, 115, .4));
+}
+
+:root[data-theme="night"] .logo-img {
+  filter: drop-shadow(0 0 10px rgba(244, 169, 194, .5));
+}
+
+:root[data-theme="night"] nav .logo:hover .logo-img {
+  filter: drop-shadow(0 0 14px rgba(244, 169, 194, .75));
 }
 
 nav ul {
@@ -493,6 +518,7 @@ nav a.link:hover {
 }
 
 .photo {
+  position: relative;
   display: block;
   text-decoration: none;
   cursor: pointer;
@@ -503,6 +529,60 @@ nav a.link:hover {
 
 .photo:hover {
   transform: translateY(-6px) rotate(-1deg);
+}
+
+.photo-tag {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  white-space: nowrap;
+  color: var(--rose);
+  background: rgba(255, 255, 255, .82);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border: 1.5px solid rgba(255, 255, 255, .95);
+  box-shadow: 0 8px 24px rgba(189, 77, 115, .25), inset 0 1px 0 rgba(255, 255, 255, .9);
+  transition: transform .3s ease, background .3s ease, color .3s ease, box-shadow .3s ease;
+  pointer-events: none;
+}
+
+.photo-tag-arrow {
+  display: inline-block;
+  transition: transform .25s ease;
+}
+
+.photo:hover .photo-tag {
+  transform: translateX(-50%) translateY(-2px) scale(1.04);
+  background: #ffffff;
+  color: #bd4d73;
+  box-shadow: 0 12px 28px rgba(189, 77, 115, .4);
+}
+
+.photo:hover .photo-tag-arrow {
+  transform: translateX(3px);
+}
+
+:root[data-theme="night"] .photo-tag {
+  color: #F4A9C2;
+  background: rgba(28, 18, 50, .82);
+  border-color: rgba(255, 255, 255, .25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(255, 255, 255, .15);
+}
+
+:root[data-theme="night"] .photo:hover .photo-tag {
+  background: rgba(45, 28, 80, .95);
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .75);
 }
 
 .photo img {
@@ -670,6 +750,10 @@ footer .logo {
     border-radius: 28px;
     flex-direction: column;
     padding: 14px;
+    gap: 12px;
+  }
+  .logo-img {
+    height: 38px;
   }
   .hero-card {
     padding: 38px 22px;
@@ -729,6 +813,7 @@ footer .logo {
   .photos{grid-template-columns:repeat(2,1fr);gap:12px;padding:20px 0 40px}
   .photo{padding:6px;border-radius:20px}
   .photo img{border-radius:14px;aspect-ratio:1/1}
+  .photo-tag{bottom:12px;font-size:11px;padding:5px 12px;gap:4px}
 }
 
 /* LOVELY: stop the bottom of the letters from being cut off */
