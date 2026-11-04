@@ -493,6 +493,9 @@ nav a.link:hover {
 }
 
 .photo {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
   padding: 10px;
   border-radius: 32px;
   transition: transform .35s, box-shadow .35s;
