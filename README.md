@@ -2,6 +2,4 @@
 aapke liye kuch bhi
 
 
-
-chal bhi ra h ki nahi
-yahi hai woh
+weel see bout that
