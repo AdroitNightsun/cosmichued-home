@@ -3,9 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("theme");if(t){document.documentElement.dataset.theme=t}else{var h=new Date().getHours();var isNight=h>=19||h<6;var prefDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=(isNight||prefDark)?"night":"day"}}catch(e){}</script>
 <title>cosmichued – a little corner of the internet for figuring life out</title>
 <meta name="description" content="Honest thoughts, tiny joys, bookish days and all the in-between things we’re figuring out together.">
+<link rel="canonical" href="https://cosmichued.com/">
+
+<!-- Favicon -->
+<!-- TODO: add assets/logos/favicon.png if not present -->
+<link rel="icon" type="image/png" href="assets/logos/favicon.png">
+<link rel="icon" type="image/svg+xml" href="assets/logos/logo.svg">
+
+<!-- Open Graph & Social Cards -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="cosmichued">
+<meta property="og:title" content="cosmichued – a little corner of the internet for figuring life out">
+<meta property="og:description" content="Honest thoughts, tiny joys, bookish days and all the in-between things we’re figuring out together.">
+<meta property="og:url" content="https://cosmichued.com/">
+<meta property="og:image" content="https://cosmichued.com/assets/logos/cosmic-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="cosmichued – a little corner of the internet for figuring life out">
+<meta name="twitter:description" content="Honest thoughts, tiny joys, bookish days and all the in-between things we’re figuring out together.">
+<meta name="twitter:image" content="https://cosmichued.com/assets/logos/cosmic-logo.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Princess+Sofia&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -28,7 +47,7 @@
       <ul>
         <li><a class="link" href="#top">Home</a></li>
         <li><a class="link" href="#about">About</a></li>
-        <li><a class="link" href="#topics">Journal</a></li>
+        <li><a class="link" href="#journal">Journal</a></li>
         <li><a class="link" href="#more">More</a></li>
       </ul>
       <button id="mode" class="mode" type="button" aria-pressed="false" aria-label="Switch to night mode"><span class="knob">☀️</span></button>
@@ -38,51 +57,138 @@
   <main id="top">
     <section class="hero">
       <div class="hero-card glass">
-        <p class="kicker">&#10024; Everyday. A Little More Magical. &#10024;</p>
+        <p class="kicker">&#10024; The Everyday. A Little More Magical. &#10024;</p>
         <p class="line1">Life is Messy.</p>
         <p class="line2">Let’s make it a little</p>
         <h1 class="lovely">LOVELY</h1>
         <p class="sub">Honest thoughts, tiny joys, bookish days and all the in-between things we’re figuring out together &#9825;</p>
-        <a class="btn" href="https://lime-moose-411861.hostingersite.com/">Start reading</a><a class="btn ghost" href="https://lime-moose-411861.hostingersite.com/contact-us/">Say hi</a>
+        <a class="btn" href="https://lime-moose-411861.hostingersite.com/" data-blog-path="/">Start reading</a><a class="btn ghost" href="https://lime-moose-411861.hostingersite.com/contact-us/" data-blog-path="/contact-us/">Say hi</a>
       </div>
     </section>
 
     <section class="photos" aria-label="Moodboard">
-      <a class="photo glass" href="https://lime-moose-411861.hostingersite.com/books-to-read-in-your-20s/">
-        <img src="https://i.pinimg.com/736x/a8/d0/c5/a8d0c54fe1b3bb2aa40adf87feabf3d5.jpg" alt="Soft pink moodboard photo" loading="lazy">
-        <span class="photo-tag">Click to read <span class="photo-tag-arrow" aria-hidden="true">&rarr;</span></span>
+      <!-- TODO: download photo from Pinterest and save locally to assets/photos/books.jpg, then update src -->
+      <a class="photo glass" href="https://lime-moose-411861.hostingersite.com/books-to-read-in-your-20s/" data-blog-path="/books-to-read-in-your-20s/">
+        <img src="https://i.pinimg.com/736x/a8/d0/c5/a8d0c54fe1b3bb2aa40adf87feabf3d5.jpg" alt="Books to read in your 20s" loading="lazy">
+        <div class="photo-caption">
+          <span class="photo-title">Books to read in your 20s</span>
+          <span class="photo-tag">Click to read <span class="photo-tag-arrow" aria-hidden="true">&rarr;</span></span>
+        </div>
       </a>
-      <a class="photo glass" href="https://lime-moose-411861.hostingersite.com/things-that-should-have-been-taught-in-school/">
-        <img src="assets/photos/school.png" alt="Cozy aesthetic photo" loading="lazy">
-        <span class="photo-tag">Click to read <span class="photo-tag-arrow" aria-hidden="true">&rarr;</span></span>
+      <a class="photo glass" href="https://lime-moose-411861.hostingersite.com/things-that-should-have-been-taught-in-school/" data-blog-path="/things-that-should-have-been-taught-in-school/">
+        <img src="assets/photos/school.png" alt="Things that should have been taught in school" loading="lazy">
+        <div class="photo-caption">
+          <span class="photo-title">Things that should have been taught in school</span>
+          <span class="photo-tag">Click to read <span class="photo-tag-arrow" aria-hidden="true">&rarr;</span></span>
+        </div>
       </a>
-      <a class="photo glass" href="https://lime-moose-411861.hostingersite.com/enjoying-your-own-company/">
-        <img src="assets/photos/enjoy-yourself.jpeg" alt="Dreamy pastel photo" loading="lazy">
-        <span class="photo-tag">Click to read <span class="photo-tag-arrow" aria-hidden="true">&rarr;</span></span>
+      <a class="photo glass" href="https://lime-moose-411861.hostingersite.com/enjoying-your-own-company/" data-blog-path="/enjoying-your-own-company/">
+        <img src="assets/photos/enjoy-yourself.jpeg" alt="Enjoying your own company" loading="lazy">
+        <div class="photo-caption">
+          <span class="photo-title">Enjoying your own company</span>
+          <span class="photo-tag">Click to read <span class="photo-tag-arrow" aria-hidden="true">&rarr;</span></span>
+        </div>
       </a>
-      <a class="photo glass" href="https://lime-moose-411861.hostingersite.com/">
-        <img src="assets/photos/read-more.png" alt="Bookish day photo" loading="lazy">
-        <span class="photo-tag">Click to read <span class="photo-tag-arrow" aria-hidden="true">&rarr;</span></span>
+      <!-- TODO: point to a specific post URL once chosen -->
+      <a class="photo glass" href="https://lime-moose-411861.hostingersite.com/" data-blog-path="/">
+        <img src="assets/photos/read-more.png" alt="Latest from the journal" loading="lazy">
+        <div class="photo-caption">
+          <span class="photo-title">Latest from the journal</span>
+          <span class="photo-tag">Click to read <span class="photo-tag-arrow" aria-hidden="true">&rarr;</span></span>
+        </div>
       </a>
+    </section>
+
+    <section id="journal" class="journal-section">
+      <h2>Fresh from the journal</h2>
+      <p class="lead">New stories, thoughts, and little discoveries.</p>
+      <div id="journal-posts" class="journal-grid" aria-live="polite">
+        <!-- Skeleton cards shown while loading -->
+        <article class="card glass journal-card skeleton-card" aria-hidden="true">
+          <div class="skeleton-img"></div>
+          <div class="skeleton-text title"></div>
+          <div class="skeleton-text link"></div>
+        </article>
+        <article class="card glass journal-card skeleton-card" aria-hidden="true">
+          <div class="skeleton-img"></div>
+          <div class="skeleton-text title"></div>
+          <div class="skeleton-text link"></div>
+        </article>
+        <article class="card glass journal-card skeleton-card" aria-hidden="true">
+          <div class="skeleton-img"></div>
+          <div class="skeleton-text title"></div>
+          <div class="skeleton-text link"></div>
+        </article>
+      </div>
     </section>
 
     <section id="topics">
       <h2>What we talk about</h2>
       <p class="lead">Three little corners to wander through.</p>
       <div class="cards">
-        <article class="card glass"><div class="em">&#128214;</div><h3>Bookish Days</h3><p>Cozy reads, favorite quotes and the stories that stay with us. Think rainy-day book hauls, dog-eared pages and cold tea beside a chapter we couldn’t put down. We share what we loved and the lines we keep thinking about long after the last page.</p></article>
-        <article class="card glass"><div class="em">&#127800;</div><h3>Tiny Joys</h3><p>The small, soft things that make an ordinary day feel lovely. Think warm drinks, golden-hour light, a song that fits the moment and little rituals that make a Tuesday feel special. We collect the tiny joys that are worth slowing down for.</p></article>
-        <article class="card glass"><div class="em">&#129419;</div><h3>Honest Thoughts</h3><p>Figuring life out together, messy parts included. Think late-night thoughts, things we’re still learning, and days when nothing goes to plan. No pressure to be perfect here, just real talk and the reminder that you’re not the only one still working it out.</p></article>
+        <!-- TODO: update category link when blog domain changes -->
+        <a class="card glass link-card topic-card" href="https://lime-moose-411861.hostingersite.com/category/bookish-days/" data-blog-path="/category/bookish-days/">
+          <div class="em">&#128214;</div>
+          <h3>Bookish Days</h3>
+          <p>Cozy reads, favorite quotes and the stories that stay with us. Think rainy-day book hauls, dog-eared pages and cold tea beside a chapter we couldn’t put down. We share what we loved and the lines we keep thinking about long after the last page.</p>
+        </a>
+        <!-- TODO: update category link when blog domain changes -->
+        <a class="card glass link-card topic-card" href="https://lime-moose-411861.hostingersite.com/category/tiny-joys/" data-blog-path="/category/tiny-joys/">
+          <div class="em">&#127800;</div>
+          <h3>Tiny Joys</h3>
+          <p>The small, soft things that make an ordinary day feel lovely. Think warm drinks, golden-hour light, a song that fits the moment and little rituals that make a Tuesday feel special. We collect the tiny joys that are worth slowing down for.</p>
+        </a>
+        <!-- TODO: update category link when blog domain changes -->
+        <a class="card glass link-card topic-card" href="https://lime-moose-411861.hostingersite.com/category/honest-thoughts/" data-blog-path="/category/honest-thoughts/">
+          <div class="em">&#129419;</div>
+          <h3>Honest Thoughts</h3>
+          <p>Figuring life out together, messy parts included. Think late-night thoughts, things we’re still learning, and days when nothing goes to plan. No pressure to be perfect here, just real talk and the reminder that you’re not the only one still working it out.</p>
+        </a>
       </div>
+    </section>
+
+    <section id="mood" class="mood-section">
+      <h2>How are you feeling today?</h2>
+      <p class="lead">Pick a mood for a little note meant just for you.</p>
+      <div class="mood-buttons" role="group" aria-label="Mood picker">
+        <button type="button" class="mood-btn glass" data-mood="cozy" aria-label="Feeling cozy">
+          <span class="mood-emoji">🌸</span>
+          <span class="mood-name">cozy</span>
+        </button>
+        <button type="button" class="mood-btn glass" data-mood="messy" aria-label="Feeling messy">
+          <span class="mood-emoji">🌧️</span>
+          <span class="mood-name">messy</span>
+        </button>
+        <button type="button" class="mood-btn glass" data-mood="hopeful" aria-label="Feeling hopeful">
+          <span class="mood-emoji">✨</span>
+          <span class="mood-name">hopeful</span>
+        </button>
+        <button type="button" class="mood-btn glass" data-mood="tired" aria-label="Feeling tired">
+          <span class="mood-emoji">😴</span>
+          <span class="mood-name">tired</span>
+        </button>
+        <button type="button" class="mood-btn glass" data-mood="thoughtful" aria-label="Feeling thoughtful">
+          <span class="mood-emoji">💭</span>
+          <span class="mood-name">thoughtful</span>
+        </button>
+      </div>
+      <div id="mood-response" class="mood-card glass" style="display: none;" aria-live="polite"></div>
     </section>
 
     <section id="about" class="news glass">
       <h2>Hi, welcome in</h2>
-      <p class="lead" style="margin-bottom:0">A little sunshine, a little rain, 
-Some wild dreams, some growing pains.
-Finding magic in the little things we do,
-Collecting moments, becoming new.
-A little universe, a little hue — welcome to CosmicHued. ♡</p>
+      <div class="welcome-poem">
+        <p>A little sunshine, a little rain,</p>
+        <p>Some wild dreams, some growing pains.</p>
+        <p>Finding magic in the little things we do,</p>
+        <p>Collecting moments, becoming new.</p>
+        <p>A little universe, a little hue — welcome to cosmichued. ♡</p>
+      </div>
+
+      <div class="thought-card glass" id="thought-of-the-day">
+        <span class="thought-badge">&#10024; Thought of the Day</span>
+        <p class="thought-text" id="daily-thought-text"></p>
+      </div>
     </section>
 
     <section id="more" class="more-section glass">
@@ -90,19 +196,19 @@ A little universe, a little hue — welcome to CosmicHued. ♡</p>
       <p class="lead" style="margin-bottom: 28px">A few extra corners to explore.</p>
       <div class="more-cards">
         <!-- TODO: replace with the real page URL -->
-        <a class="card glass link-card" href="https://lime-moose-411861.hostingersite.com/privacy-policy/">
+        <a class="card glass link-card" href="https://lime-moose-411861.hostingersite.com/privacy-policy/" data-blog-path="/privacy-policy/">
           <div class="em">&#128274;</div>
           <h3>Privacy Policy</h3>
           <p>How we protect your peace of mind and handle information with care.</p>
         </a>
         <!-- TODO: replace with the real page URL -->
-        <a class="card glass link-card" href="https://lime-moose-411861.hostingersite.com/about-us/">
+        <a class="card glass link-card" href="https://lime-moose-411861.hostingersite.com/about-us/" data-blog-path="/about-us/">
           <div class="em">&#127807;</div>
           <h3>About Us</h3>
           <p>Our story, our mission, and the quiet heart behind this space.</p>
         </a>
-        <!-- TODO: replace with the real page URL -->
-        <a class="card glass link-card" href="https://lime-moose-411861.hostingersite.com/about-us/">
+        <!-- TODO: fix address for who-made-this page when ready -->
+        <a class="card glass link-card" href="https://lime-moose-411861.hostingersite.com/who-made-this/" data-blog-path="/who-made-this/">
           <div class="em">&#10024;</div>
           <h3>Who made this website</h3>
           <p>The lovely creators and friends who helped bring cosmichued to life.</p>
@@ -112,7 +218,7 @@ A little universe, a little hue — welcome to CosmicHued. ♡</p>
   </main>
 
   <footer>
-    <a class="logo" href="#top">Cosmichued</a>
+    <a class="logo" href="#top">cosmichued</a>
     <p>Made with &#9825; &middot; &copy; 2026</p>
   </footer>
 </div>

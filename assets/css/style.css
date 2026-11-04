@@ -591,7 +591,44 @@ nav a.link:hover {
   aspect-ratio: 3/4;
   object-fit: cover;
   border-radius: 24px;
-  background: var(--blush);
+  background: linear-gradient(135deg, rgba(249, 228, 232, 0.95), rgba(201, 167, 245, 0.45));
+}
+
+.photo-caption {
+  position: absolute;
+  inset: auto 10px 10px 10px;
+  padding: 30px 14px 14px;
+  border-radius: 0 0 24px 24px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(45, 20, 32, 0.45) 35%, rgba(45, 20, 32, 0.85) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  text-align: center;
+  pointer-events: none;
+}
+
+:root[data-theme="night"] .photo-caption {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(15, 8, 28, 0.55) 35%, rgba(15, 8, 28, 0.92) 100%);
+}
+
+.photo-title {
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.photo-caption .photo-tag {
+  position: static;
+  transform: none;
+  margin-top: 2px;
+}
+
+.photo:hover .photo-caption .photo-tag {
+  transform: translateY(-2px) scale(1.04);
 }
 
 /* sections */
@@ -608,6 +645,154 @@ h2 {
   color: var(--soft);
   margin: 6px auto 30px;
   max-width: 520px;
+}
+
+/* Fresh from the journal */
+.journal-section {
+  padding-bottom: 70px;
+}
+
+.journal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.journal-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-radius: 28px;
+  text-align: left;
+  transition: transform .35s, box-shadow .35s;
+}
+
+.journal-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(189, 77, 115, .32);
+}
+
+:root[data-theme="night"] .journal-card:hover {
+  box-shadow: 0 24px 50px rgba(0, 0, 0, .65);
+}
+
+.journal-img-link {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/10;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, rgba(249, 228, 232, 0.95), rgba(201, 167, 245, 0.45));
+}
+
+.journal-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .45s ease;
+}
+
+.journal-card:hover .journal-thumb {
+  transform: scale(1.05);
+}
+
+.journal-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 14px 6px 4px;
+}
+
+.journal-title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+.journal-title-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.journal-title-link:hover {
+  color: var(--rose);
+}
+
+.journal-link {
+  margin-top: auto;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--rose);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--glass);
+  border: 1px solid var(--glass-line);
+  transition: transform .25s, background .25s, color .25s;
+}
+
+.journal-link:hover {
+  transform: translateX(4px);
+  background: #ffffff;
+  color: var(--rose);
+}
+
+:root[data-theme="night"] .journal-link:hover {
+  background: rgba(45, 28, 80, 0.95);
+  color: #ffffff;
+}
+
+/* Skeleton loader for journal cards */
+.skeleton-card {
+  pointer-events: none;
+}
+
+.skeleton-img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  border-radius: 20px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.2) 25%, rgba(255,255,255,0.48) 50%, rgba(255,255,255,0.2) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-pulse 1.8s infinite ease-in-out;
+}
+
+.skeleton-text {
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.2) 25%, rgba(255,255,255,0.48) 50%, rgba(255,255,255,0.2) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-pulse 1.8s infinite ease-in-out;
+}
+
+.skeleton-text.title {
+  height: 20px;
+  width: 80%;
+  margin: 16px 6px 10px;
+}
+
+.skeleton-text.link {
+  height: 16px;
+  width: 45%;
+  margin: 0 6px 8px;
+}
+
+@keyframes skeleton-pulse {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+:root[data-theme="night"] .skeleton-img,
+:root[data-theme="night"] .skeleton-text {
+  background: linear-gradient(90deg, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.18) 50%, rgba(255,255,255,0.06) 75%);
+  background-size: 200% 100%;
 }
 
 .cards {
@@ -638,11 +823,195 @@ h2 {
   color: var(--soft);
 }
 
+/* "How are you feeling today?" mood picker */
+.mood-section {
+  text-align: center;
+  padding: 44px 30px;
+  margin-bottom: 70px;
+  border-radius: 40px;
+}
+
+.mood-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.mood-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 14px 20px;
+  min-width: 86px;
+  border-radius: 24px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  border: 1.5px solid var(--glass-line);
+  background: var(--glass);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  box-shadow: 0 8px 24px rgba(189, 77, 115, 0.14);
+  transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.mood-btn .mood-emoji {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.mood-btn .mood-name {
+  font-size: 13px;
+  color: var(--soft);
+  text-transform: capitalize;
+}
+
+.mood-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  border-color: var(--rose);
+  box-shadow: 0 12px 28px rgba(189, 77, 115, 0.28);
+}
+
+.mood-btn.active {
+  transform: translateY(-4px) scale(1.05);
+  border-color: var(--rose);
+  background: linear-gradient(135deg, rgba(229, 111, 156, 0.25), rgba(201, 167, 245, 0.3));
+  box-shadow: 0 12px 30px rgba(189, 77, 115, 0.35);
+}
+
+.mood-btn.active .mood-name {
+  color: var(--rose);
+  font-weight: 700;
+}
+
+:root[data-theme="night"] .mood-btn {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+:root[data-theme="night"] .mood-btn:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.65);
+}
+
+:root[data-theme="night"] .mood-btn.active {
+  border-color: var(--rose);
+  background: linear-gradient(135deg, rgba(244, 169, 194, 0.28), rgba(201, 167, 245, 0.25));
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+}
+
+.mood-card {
+  max-width: 540px;
+  margin: 28px auto 0;
+  padding: 24px 28px;
+  border-radius: 28px;
+  text-align: center;
+  animation: mood-pop .35s ease-out;
+}
+
+@keyframes mood-pop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.mood-card-msg {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.mood-card-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, #E56F9C, #F4A9C2);
+  box-shadow: 0 8px 20px rgba(229, 111, 156, .35);
+  transition: transform .25s, box-shadow .25s;
+}
+
+.mood-card-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(229, 111, 156, .5);
+}
+
 .news {
   padding: 44px 30px;
   border-radius: 40px;
   text-align: center;
   margin-bottom: 70px;
+}
+
+/* Welcome poem & Thought of the day */
+.welcome-poem {
+  margin: 18px auto 26px;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.welcome-poem p {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--soft);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.welcome-poem p:last-child {
+  font-weight: 600;
+  color: var(--rose);
+  margin-top: 4px;
+}
+
+.thought-card {
+  max-width: 520px;
+  margin: 24px auto 0;
+  padding: 22px 26px;
+  border-radius: 28px;
+  text-align: center;
+}
+
+.thought-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--rose);
+  background: rgba(255, 255, 255, .7);
+  padding: 4px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--glass-line);
+}
+
+:root[data-theme="night"] .thought-badge {
+  background: rgba(45, 28, 80, .7);
+}
+
+.thought-text {
+  margin-top: 12px;
+  font-size: 15.5px;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--ink);
 }
 
 /* "Want to know more?" section & cards */
@@ -732,8 +1101,34 @@ footer .logo {
   font-size: 22px;
 }
 
+/* Sparkle cursor trail on desktop */
+.cursor-sparkle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  user-select: none;
+  font-size: 14px;
+  line-height: 1;
+  will-change: transform, opacity;
+  animation: sparkle-trail-fade 0.75s cubic-bezier(0.2, 0.8, 0.4, 1) forwards;
+}
+
+@keyframes sparkle-trail-fade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 20px)) scale(0.2) rotate(45deg);
+  }
+}
+
 @media (max-width: 860px) {
   .photos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .journal-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   .cards,
@@ -759,11 +1154,34 @@ footer .logo {
     padding: 38px 22px;
     border-radius: 36px;
   }
+  .journal-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .mood-section {
+    padding: 32px 16px;
+  }
+  .mood-buttons {
+    gap: 8px;
+  }
+  .mood-btn {
+    min-width: 60px;
+    padding: 10px 12px;
+    font-size: 12px;
+    border-radius: 18px;
+  }
+  .mood-btn .mood-emoji {
+    font-size: 22px;
+  }
+  .mood-card {
+    padding: 20px 16px;
+    border-radius: 22px;
+  }
+  .welcome-poem p {
+    font-size: 14.5px;
+  }
   .more-section {
     padding: 38px 20px;
-  }
-  .photos {
-    grid-template-columns: 1fr;
   }
   .btn.ghost {
     margin: 10px 0 0;
@@ -795,6 +1213,22 @@ footer .logo {
     display: none !important;
     animation: none !important;
   }
+  .cursor-sparkle {
+    display: none !important;
+  }
+  .skeleton-img,
+  .skeleton-text {
+    animation: none !important;
+  }
+  .mood-card {
+    animation: none !important;
+  }
+  .journal-card,
+  .journal-thumb,
+  .mood-btn {
+    transition: none !important;
+    transform: none !important;
+  }
 }
 
 @media (max-width:560px){
@@ -813,7 +1247,9 @@ footer .logo {
   .photos{grid-template-columns:repeat(2,1fr);gap:12px;padding:20px 0 40px}
   .photo{padding:6px;border-radius:20px}
   .photo img{border-radius:14px;aspect-ratio:1/1}
-  .photo-tag{bottom:12px;font-size:11px;padding:5px 12px;gap:4px}
+  .photo-caption{padding:12px 6px 6px;border-radius:0 0 14px 14px;gap:4px}
+  .photo-title{font-size:11px;line-height:1.2}
+  .photo-tag{bottom:12px;font-size:11px;padding:4px 10px;gap:4px}
 }
 
 /* LOVELY: stop the bottom of the letters from being cut off */
